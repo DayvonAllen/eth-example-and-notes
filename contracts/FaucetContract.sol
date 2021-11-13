@@ -3,8 +3,9 @@ pragma solidity >=0.4.22 <0.9.0;
 
 import "./Owned.sol";
 import "./Logger.sol";
+import "./IFaucet.sol";
 
-contract Faucet is Owned, Logger {
+contract Faucet is Owned, Logger, IFaucet {
     // storage variables(for state)
     // uint256 public funds = 1000;
 
@@ -40,7 +41,7 @@ contract Faucet is Owned, Logger {
 
     // must be payable so you can send funds in a transaction
     // Transactions (can generate state changes) and require gas fee
-    function addFunds() external payable {
+    function addFunds() external payable override {
         // msg is a special object that holds information related to the transaction and sender
         // can get data, gas, sender(address), sig, value
         address funder = msg.sender;
@@ -61,6 +62,7 @@ contract Faucet is Owned, Logger {
 
     function withdraw(uint256 withdrawAmount)
         external
+        override
         limitWithdraw(withdrawAmount)
     {
         payable(msg.sender).transfer(withdrawAmount);
