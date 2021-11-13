@@ -38,6 +38,14 @@ contract Faucet {
         return lutFunders[index];
     }
 
+    function withdraw(uint256 withdrawAmount) external {
+        require(
+            withdrawAmount <= 1000000000000000000,
+            "Cannot withdraw more than 1 ether"
+        );
+        payable(msg.sender).transfer(withdrawAmount);
+    }
+
     function getAllFunders() external view returns (address[] memory) {
         address[] memory _funders = new address[](numOfFunders);
 
