@@ -37,6 +37,7 @@
     3. Verify transactions.
     4. Add the transactions to blocks by solving some mathematical problem(They have to find a very specific and huge number), this process takes time and computational resources(AVG time 15 seconds). The number they are looking for is called `nonce`.
     5. After the number has been found the blocks can be added to the blockchain(miners are competing with each other to find the number first).
+    6. All full nodes are notified of these changes and their state is updated so they can be accurate.
 - `Node` - A computer that is connected to the blockchain, they connect to the blockchain by running client software that was made to help computers connect to the blockchain.
   - Examples of client software:
     - `Geth` - written in the Go Programming language.
