@@ -1,13 +1,14 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
 
-contract Faucet {
+import "./Owned.sol";
+import "./Logger.sol";
+
+contract Faucet is Owned, Logger {
     // storage variables(for state)
     // uint256 public funds = 1000;
 
     // int256 public counter = -10;
-
-    address public owner;
 
     // public means this will be apart of the interface
     // private variables can only be accessed from within the smart contract
@@ -15,15 +16,6 @@ contract Faucet {
     uint256 public numOfFunders;
     mapping(address => bool) private funders;
     mapping(uint256 => address) private lutFunders;
-
-    constructor() {
-        owner = msg.sender;
-    }
-
-    modifier onlyOwner() {
-        require(msg.sender == owner, "Only owner can call this function");
-        _;
-    }
 
     // allows for you to reuse code that's in the block
     modifier limitWithdraw(uint256 withdrawAmount) {
@@ -41,6 +33,10 @@ contract Faucet {
     // external function are part of the contract interface
     // which means they can be called via contracts and other txs
     receive() external payable {}
+
+    function emitLog() public pure override returns (bytes32) {
+        return "Hello World";
+    }
 
     // must be payable so you can send funds in a transaction
     // Transactions (can generate state changes) and require gas fee
