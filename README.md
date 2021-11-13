@@ -68,6 +68,8 @@
   - `Archive Node` - they archive the state of the block.
 - `Miner` - full nodes in the block chain that write transaction to the blockchain, they are paid a gas fee for using their computational resources in order to add transactions to the blockchain.
 - `Gas Fee` - a small amount of eth(measured in gwei or wei) paid to miners for using their computional resources to write a transaction to the blockchain.
+- `Ethereum Bytecode`- Sets of instructions(opcodes) in hex format that can be executed by the EVM. Every instruction has a length of 1 byte for example "60" "40" "FA" etc. These instructions can be produced by compilation of solidity or any other code with a supported compiler.
+- `Compilation` - Process in which source code in one language is transformed into a source code in another language.
 - There are two types of accounts on the eth blockchain, an Externally Owned Account(EOA) and a smart contract:
   - `Externally Owned Account`(EOA) - An Ethereum Externally Owned Account consists of:
     - `Ethereum State` - Where all of the accounts and the balances of those accounts are stored.

@@ -7,6 +7,9 @@ contract Faucet {
 
     // int256 public counter = -10;
 
+    // public means this will be apart of the interface
+    address[] public funders;
+
     // this is a special function
     // it's called when you make a tx that doesn't specify a function name to call
     // payable allows for you to receive ether to execute the function
@@ -16,7 +19,11 @@ contract Faucet {
 
     // must be payable so you can send funds in a transaction
     // Transactions (can generate state changes) and require gas fee
-    function addFunds() external payable {}
+    function addFunds() external payable {
+        // msg is a special object that holds information related to the transaction and sender
+        // can get data, gas, sender(address), sig, value
+        funders.push(msg.sender);
+    }
 
     // [pure and view](read only calls, no gas fee)
     // view - indicates that the function will not alter the storage state in any way.
