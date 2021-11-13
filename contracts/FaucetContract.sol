@@ -7,12 +7,23 @@ contract Faucet {
 
     // int256 public counter = -10;
 
+    address public owner;
+
     // public means this will be apart of the interface
     // private variables can only be accessed from within the smart contract
     // internal variables can be accessed from within smart contract and also derived smart contracts
     uint256 public numOfFunders;
     mapping(address => bool) private funders;
     mapping(uint256 => address) private lutFunders;
+
+    constructor() {
+        owner = msg.sender;
+    }
+
+    modifier onlyOwner() {
+        require(msg.sender == owner, "Only owner can call this function");
+        _;
+    }
 
     // allows for you to reuse code that's in the block
     modifier limitWithdraw(uint256 withdrawAmount) {
@@ -44,6 +55,10 @@ contract Faucet {
         }
     }
 
+    function transferOwnership(address newOwner) external onlyOwner {
+        owner = newOwner;
+    }
+
     function getFunderAtIndex(uint8 index) external view returns (address) {
         return lutFunders[index];
     }
@@ -55,7 +70,12 @@ contract Faucet {
         payable(msg.sender).transfer(withdrawAmount);
     }
 
-    function getAllFunders() external view returns (address[] memory) {
+    function getAllFunders()
+        external
+        view
+        onlyOwner
+        returns (address[] memory)
+    {
         address[] memory _funders = new address[](numOfFunders);
 
         for (uint256 i = 0; i < numOfFunders; i++) {
