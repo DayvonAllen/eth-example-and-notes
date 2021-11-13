@@ -32,6 +32,8 @@
   - The blockchain consists of blocks of transactions, these transactions are confirmed by thousands of computers to make sure that every transaction is legitmate and valid.
 - `Address` - An Ethereum address is a 42-character hexadecimal address derived from the last 20 bytes of the public key controlling the account with 0x appended in front. e.g. `0x71C7656EC7ab88b098defB751B7401B5f6d8976F`.
 - `Block` - is a structure that contains transactions and the previous block's hash. 
+- `Wallet` - is an application that serves as a maintainer of your ethereum account. It can help you manage your crypto and connect to the blockchain for you and create and send transactions.
+- `keccak256` - is the hashing algorithm that is used on the eth blockchain.
 - `Mine` - adding a transaction to the blockchain. 
   - This done through software that is ran on the miner's computer.
   - Mining steps:
@@ -56,5 +58,18 @@
         - This structure consists of the following:
           - `Balance` - your account's balance in ether.
           - `Nonce` - specifies the number of transactions you made from your account.
-  - `Smart Contract` -  
+  - `Smart Contract` - consists of the following:
+     - `Ethereum State` - Where all of the accounts and the balances of those accounts are stored.
+      - The eth state contains your `address`.
+      - The eth state links to a structure which keeps the balance.
+        - This structure consists of the following:
+          - `Balance` - your account's balance in ether.
+          - `Nonce` - specifies the number of transactions you made from your account.
+          - `Storage Hash` - pointer to different structures on the eth blockchain.
+            - It points to storage, you can store data in the contract using this hash.
+          - `Code Hash` - pointer to different structures on the eth blockchain.
+            - It contains bytecode, example of bytecode in a smart contract:
+```
+0x60806040526103e86000557ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff660015534801561003a57600080fd5b5061010d8061004a6000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c806361bc221a146037578063c89f2ce4146051575b600080fd5b603d606b565b60405160489190608e565b60405180910390f35b60576071565b6040516062919060be565b60405180910390f35b60015481565b60005481565b6000819050919050565b6088816077565b82525050565b600060208201905060a160008301846081565b92915050565b6000819050919050565b60b88160a7565b82525050565b600060208201905060d1600083018460b1565b9291505056fea2646970667358221220e6743e517e6a735f9804e3a59d208fc5297466148927c0a76d4229764ab9a11064736f6c63430008090033
+```
 ---
