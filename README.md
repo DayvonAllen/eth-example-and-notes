@@ -40,6 +40,7 @@
 - `Wallet` - is an application that serves as a maintainer of your ethereum account. It can help you manage your crypto and connect to the blockchain for you and create and send transactions.
 - `keccak256` - is the hashing algorithm that is used on the eth blockchain.
 - `ABI`(Application Binary Interface).
+- `JSON RPC` - is a stateless, light-weight remote procedure call (RPC) protocol. Primarily this specification defines several data structures and the rules around their processing. It is transport agnostic in that the concepts can be used within the same process, over sockets, over HTTP, or in many various message passing environments. It uses JSON (RFC 4627) as data format.
 - `EVM`(Ethereum Virtual Machine) - it's job is to take the bytecode from smart contracts and run it on nodes.
   - Storage locations:
     - storage(persistent storage)
