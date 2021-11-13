@@ -6,6 +6,10 @@
 - A world class development environment, testing framework and asset pipeline for blockchains using the Ethereum Virtual Machine(EVM).
   - Helps you in your development of smart contracts.
   - Installation command using node: `npm install truffle -g`
+- Truffle parts:
+  - Has a console
+  - Which helps you connects to the Web3 API
+  - Web3 API connects to the private blockchain ganache(for development purposes, also can connect to mainnet and testnet of ethereum)
 - Truffle Commands:
   - `truffle init` - Initializes a boilerplate smart contract project.
     - The generated files include:
@@ -50,6 +54,8 @@
     - `Geth` - written in the Go Programming language.
     - `Parity` - written in the Rust programming language.
   - `Full Node` - Keep the entire database and mempool of the blockchain and can mine transactions.
+  - `Light Node` - Only keep information about the block header not the entire DB.
+  - `Archive Node` - they archive the state of the block.
 - `Miner` - full nodes in the block chain that write transaction to the blockchain, they are paid a gas fee for using their computational resources in order to add transactions to the blockchain.
 - `Gas Fee` - a small amount of eth(measured in gwei or wei) paid to miners for using their computional resources to write a transaction to the blockchain.
 - There are two types of accounts on the eth blockchain, an Externally Owned Account(EOA) and a smart contract:
