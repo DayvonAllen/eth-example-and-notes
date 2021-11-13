@@ -21,6 +21,7 @@
    - `truffle migrate` - It migrates your smart contracts that are specified in a file under the `migrations` directory to the blockchain.
      - It compiles the smart contract into bytecode and then deploys them to the blockchain.
      - The bytecode of the smart contract will be under `TX DATA`, in ganache you can find this under the `TRANSACTIONS` tab after clicking on a transction block that has the `CONTRACT CREATION` label.
+     - `truffle migrate --reset` - allows you to reset your migration.
 ---
 
 ## Ganache
@@ -40,6 +41,14 @@
 - `keccak256` - is the hashing algorithm that is used on the eth blockchain.
 - `ABI`(Application Binary Interface).
 - `EVM`(Ethereum Virtual Machine) - it's job is to take the bytecode from smart contracts and run it on nodes.
+  - Storage locations:
+    - storage(persistent storage)
+    - memory(ephemeral storage)
+    - stack(instructions of the bytecode are stored here)
+- How Block Headers are calculated:
+  - `RLP`("recursive length prefix") - encoding is the main serialization format used in Ethereum and is use everywhere - for blocks, transactions, account state data and wire protocol messages. 
+- `Nonce` - A special(random) number, which when hashed provides proof that the miner went through POW(Proof Of Work) and the block can be added into the blockchain.
+  - Enforces order of transactions.
 - `Mine` - adding a transaction to the blockchain. 
   - This done through software that is ran on the miner's computer.
   - Mining steps:
