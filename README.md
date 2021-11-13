@@ -28,9 +28,22 @@
   - The ethereum blockchain runs based of  `ether` or `eth`, that's the currency of the blockchain. So every transaction that writes to the blockchain requires some amount of ether to do so.
   - The blockchain keeps a singleton state, so all nodes connected to the blockchain have to keep the same state. This is done through a database that all nodes maintain.
   - There is also a `mempool` to help keep track of all transactions so all nodes can remain in sync.
+  - The blockchain consists of blocks of transactions.
+- `Mine` - adding a transaction to the blockchain. 
+  - This done through software that is ran on the miner's computer.
+  - Mining steps:
+    1. Get transactions from the mempool.
+    2. Order transactions.
+    3. Verify transactions.
+    4. Add the transactions to blocks by solving some mathematical problem(They have to find a very specific and huge number), this process takes time and computational resources(AVG time 15 seconds). The number they are looking for is called `nonce`.
+    5. After the number has been found the blocks can be added to the blockchain(miners are competing with each other to find the number first).
 - `Node` - A computer that is connected to the blockchain, they connect to the blockchain by running client software that was made to help computers connect to the blockchain.
   - Examples of client software:
     - `Geth` - written in the Go Programming language.
     - `Parity` - written in the Rust programming language.
+  - `Full Node` - Keep the entire database and mempool of the blockchain and can mine transactions.
+- `Miner` - full nodes in the block chain that write transaction to the blockchain, they are paid a gas fee for using their computational resources in order to add transactions to the blockchain.
+- `Gas Fee` - a small amount of eth(measured in gwei or wei) paid to miners for using their computional resources to write a transaction to the blockchain.
 - `Address` - is a 20 byte number in hexadecimal format.
+- `Block` - is a structure that contains information about a certain transaction and the previous block's hash.
 ---
