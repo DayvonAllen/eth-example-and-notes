@@ -8,7 +8,11 @@ contract Faucet {
     // int256 public counter = -10;
 
     // public means this will be apart of the interface
-    address[] public funders;
+    // private variables can only be accessed from within the smart contract
+    // internal variables can be accessed from within smart contract and also derived smart contracts
+    uint256 public numOfFunders;
+    mapping(address => bool) private funders;
+    mapping(uint256 => address) private lutFunders;
 
     // this is a special function
     // it's called when you make a tx that doesn't specify a function name to call
@@ -22,11 +26,26 @@ contract Faucet {
     function addFunds() external payable {
         // msg is a special object that holds information related to the transaction and sender
         // can get data, gas, sender(address), sig, value
-        funders.push(msg.sender);
+        address funder = msg.sender;
+        if (!funders[funder]) {
+            uint256 index = numOfFunders++;
+            funders[funder] = true;
+            lutFunders[index] = funder;
+        }
+    }
+
+    function getFunderAtIndex(uint8 index) external view returns (address) {
+        return lutFunders[index];
     }
 
     function getAllFunders() external view returns (address[] memory) {
-        return funders;
+        address[] memory _funders = new address[](numOfFunders);
+
+        for (uint256 i = 0; i < numOfFunders; i++) {
+            _funders[i] = lutFunders[i];
+        }
+
+        return _funders;
     }
 
     // [pure and view](read only calls, no gas fee)
@@ -37,6 +56,9 @@ contract Faucet {
     }
 }
 
+// external means you cannot call that resource from within your smart contract, they can only be called from outside of the smart contract(if you use the "this" keyword to call a function within your smart-
+// contract there will be higher gas fees)
+// public means you can call that resource from within your smart contract, they can also be called from outside of the smart contract.
 // Block info
 // Nonce - a hash that when combined with the minHash proofs that
 // the block has gone through proof of work(POW)
@@ -44,3 +66,7 @@ contract Faucet {
 // to talk to the node on the network you can make JSON-RPC http calls
 // JSON RPC is a stateless, light-weight remote procedure call (RPC) protocol. Primarily this specification defines several data structures and the rules around their processing.
 // It is transport agnostic in that the concepts can be used within the same process, over sockets, over HTTP, or in many various message passing environments. It uses JSON (RFC 4627) as data format.
+
+// example JS for smart contract communication:
+// const instance = await Faucet.deployed();
+// instance.addFunds({from: accounts[0], value: "2"})
