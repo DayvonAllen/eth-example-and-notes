@@ -14,6 +14,16 @@ contract Faucet {
     mapping(address => bool) private funders;
     mapping(uint256 => address) private lutFunders;
 
+    // allows for you to reuse code that's in the block
+    modifier limitWithdraw(uint256 withdrawAmount) {
+        require(
+            withdrawAmount <= 1000000000000000000,
+            "Cannot withdraw more than 1 ether"
+        );
+        // required for every modifer block, represents the rest of the code from the function that the modifier is wrapped around.
+        _;
+    }
+
     // this is a special function
     // it's called when you make a tx that doesn't specify a function name to call
     // payable allows for you to receive ether to execute the function
@@ -38,11 +48,10 @@ contract Faucet {
         return lutFunders[index];
     }
 
-    function withdraw(uint256 withdrawAmount) external {
-        require(
-            withdrawAmount <= 1000000000000000000,
-            "Cannot withdraw more than 1 ether"
-        );
+    function withdraw(uint256 withdrawAmount)
+        external
+        limitWithdraw(withdrawAmount)
+    {
         payable(msg.sender).transfer(withdrawAmount);
     }
 
