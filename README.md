@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+## Web3.js
+- It's a collection of libraries that allow you to interact with a local or remote ethereum node(a computer that's running ethereum client software).
+---
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Truffle
+- A world class development environment, testing framework and asset pipeline for blockchains using the Ethereum Virtual Machine(EVM).
+  - Helps you in your development of smart contracts.
+  - Installation command using node: `npm install truffle -g`
+- Truffle Commands:
+  - `truffle init` - Initializes a boilerplate smart contract project.
+    - The generated files include:
+      - `truffle-config.js` - places to configure your smart contract settings for the blockchain.
+      - `contracts/Migrations.sol` - Smart contract that helps migrate your other smart contracts to the blockchain. 
+      - `migrations/1_initial_migration.js` - A place to specify what we should deploy to the blockchain.
+  - `truffle console` - Allows us to interact with our smart contract without using a website or web3.js. 
+    -  We can do it through the console on our compute.
+   - `truffle migrate` - It migrates your smart contracts that are specified in a file under the `migrations` directory to the blockchain.
+     - It compiles the smart contract into bytecode and then deploys them to the blockchain.
+     - The bytecode of the smart contract will be under `TX DATA`, in ganache you can find this under the `TRANSACTIONS` tab after clicking on a transction block that has the `CONTRACT CREATION` label.
+---
 
-## Available Scripts
+## Ganache
+- Private blockchain that you can download on your computer, it's used for development purposes.
+---
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Ethereum Blockchain Terminology
+- `Blockchain` - A system or a platform where computers are connected to each other and follow some specific rules.
+  - The ethereum blockchain runs based of  `ether` or `eth`, that's the currency of the blockchain. So every transaction that writes to the blockchain requires some amount of ether to do so.
+  - The blockchain keeps a singleton state, so all nodes connected to the blockchain have to keep the same state. This is done through a database that all nodes maintain.
+  - There is also a `mempool` to help keep track of all transactions so all nodes can remain in sync.
+- `Node` - A computer that is connected to the blockchain, they connect to the blockchain by running client software that was made to help computers connect to the blockchain.
+  - Examples of client software:
+    - `Geth` - written in the Go Programming language.
+    - `Parity` - written in the Rust programming language.
+- `Address` - is a 20 byte number in hexadecimal format.
+---
