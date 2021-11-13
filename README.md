@@ -27,13 +27,15 @@
 - `Blockchain` - A system or a platform where computers are connected to each other and follow some specific rules.
   - The ethereum blockchain runs based of  `ether` or `eth`, that's the currency of the blockchain. So every transaction that writes to the blockchain requires some amount of ether to do so.
   - The blockchain keeps a singleton state, so all nodes connected to the blockchain have to keep the same state. This is done through a database that all nodes maintain.
-  - There is also a `mempool` to help keep track of all transactions so all nodes can remain in sync.
+  - There is also a `transaction mempool` to help keep track of all transactions so all nodes can remain in sync.
   - The Eth blockchain is decentralized.
   - The blockchain consists of blocks of transactions, these transactions are confirmed by thousands of computers to make sure that every transaction is legitmate and valid.
 - `Address` - An Ethereum address is a 42-character hexadecimal address derived from the last 20 bytes of the public key controlling the account with 0x appended in front. e.g. `0x71C7656EC7ab88b098defB751B7401B5f6d8976F`.
 - `Block` - is a structure that contains transactions and the previous block's hash. 
 - `Wallet` - is an application that serves as a maintainer of your ethereum account. It can help you manage your crypto and connect to the blockchain for you and create and send transactions.
 - `keccak256` - is the hashing algorithm that is used on the eth blockchain.
+- `ABI`(Application Binary Interface).
+- `EVM`(Ethereum Virtual Machine) - it's job is to take the bytecode from smart contracts and run it on nodes.
 - `Mine` - adding a transaction to the blockchain. 
   - This done through software that is ran on the miner's computer.
   - Mining steps:
