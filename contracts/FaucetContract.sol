@@ -21,7 +21,7 @@ contract Faucet is Owned, Logger, IFaucet {
     // allows for you to reuse code that's in the block
     modifier limitWithdraw(uint256 withdrawAmount) {
         require(
-            withdrawAmount <= 1000000000000000000,
+            withdrawAmount >= 1000000000000000000,
             "Cannot withdraw more than 1 ether"
         );
         // required for every modifer block, represents the rest of the code from the function that the modifier is wrapped around.
@@ -63,7 +63,7 @@ contract Faucet is Owned, Logger, IFaucet {
     function withdraw(uint256 withdrawAmount)
         external
         override
-        limitWithdraw(withdrawAmount)
+    // limitWithdraw(withdrawAmount)
     {
         payable(msg.sender).transfer(withdrawAmount);
     }
