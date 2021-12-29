@@ -1,6 +1,6 @@
 ## Ethereum Blockchain Terminology
 - `Blockchain` - A system or a platform where computers are connected to each other and follow some specific rules.
-  - The ethereum blockchain runs based of  `ether` or `eth`, that's the currency of the blockchain. So every transaction that writes to the blockchain requires some amount of ether to do so.
+  - The `ethereum blockchain` runs based off of `ether` or `eth`, that's the currency of the blockchain. So every transaction that writes to the blockchain requires some amount of ether to do so.
   - The blockchain keeps a singleton state, so all nodes connected to the blockchain have to keep the same state. This is done through a database that all nodes maintain.
   - There is also a `transaction mempool` to help keep track of all transactions so all nodes can remain in sync.
   - The Eth blockchain is decentralized.
