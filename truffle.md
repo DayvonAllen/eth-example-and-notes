@@ -1,5 +1,5 @@
 ## Truffle
-- A world class development environment, testing framework and asset pipeline for blockchains using the Ethereum Virtual Machine(EVM).
+- A world-class development environment, testing framework and asset pipeline for blockchains using the Ethereum Virtual Machine(EVM).
   - Helps you in your development of smart contracts.
   - Installation command using node: `npm install truffle -g`
 - Truffle parts:
@@ -16,6 +16,6 @@
     -  We can do it through the console on our compute.
    - `truffle migrate` - It migrates your smart contracts that are specified in a file under the `migrations` directory to the blockchain.
      - It compiles the smart contract into bytecode and then deploys them to the blockchain.
-     - The bytecode of the smart contract will be under `TX DATA`, in ganache you can find this under the `TRANSACTIONS` tab after clicking on a transction block that has the `CONTRACT CREATION` label.
+     - The bytecode of the smart contract will be under `TX DATA`, in ganache you can find this under the `TRANSACTIONS` tab after clicking on a transaction block that has the `CONTRACT CREATION` label.
      - `truffle migrate --reset` - allows you to reset your migration.
 ---
