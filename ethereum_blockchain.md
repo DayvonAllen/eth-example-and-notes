@@ -6,7 +6,7 @@
   - The Eth blockchain is decentralized.
   - The blockchain consists of blocks of transactions, these transactions are confirmed by thousands of computers to make sure that every transaction is legitmate and valid.
 - `Address` - An Ethereum address is a 42-character hexadecimal address derived from the last 20 bytes of the public key controlling the account with 0x appended in front. e.g. `0x71C7656EC7ab88b098defB751B7401B5f6d8976F`.
-- `Block` - is a structure that contains transactions and the previous block's hash. 
+- `Block` - is a structure that contains transactions and the previous block's hash and its own hash. 
 - `Wallet` - is an application that serves as a maintainer of your ethereum account. It can help you manage your crypto and connect to the blockchain for you and create and send transactions.
 - `keccak256` - is the hashing algorithm that is used on the eth blockchain.
 - `ABI`(Application Binary Interface).
